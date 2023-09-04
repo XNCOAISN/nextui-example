@@ -7,6 +7,8 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import { ThemeSwitcher } from "@/components/ThemeSwitcher";
 import { cn } from "@nextui-org/system-rsc";
 
+import { Navbar } from "./Navbar";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -26,7 +28,7 @@ export default function RootLayout({
         suppressHydrationWarning
       >
         <ThemeProvider>
-          <ThemeSwitcher className="absolute top-2 right-2" />
+          <Navbar />
           {children}
         </ThemeProvider>
       </body>
