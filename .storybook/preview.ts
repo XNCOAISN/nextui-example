@@ -3,6 +3,8 @@ import "../src/app/globals.css";
 import { withThemeByClassName } from "@storybook/addon-styling";
 import type { Preview } from "@storybook/react";
 
+import { ThemeDecorator } from "./../src/stories/decorators/ThemeDecorator";
+
 const preview: Preview = {
   parameters: {
     actions: { argTypesRegex: "^on[A-Z].*" },
@@ -21,6 +23,7 @@ const preview: Preview = {
       },
       defaultTheme: "light",
     }),
+    ThemeDecorator,
   ],
 };
 
