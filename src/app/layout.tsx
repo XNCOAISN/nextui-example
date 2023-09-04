@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 
 import { ThemeProvider } from "@/components/ThemeProvider";
+import { ThemeSwitcher } from "@/components/ThemeSwitcher";
+import { cn } from "@nextui-org/system-rsc";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,12 +20,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={cn(inter.className, "text-foreground bg-background")}
+        suppressHydrationWarning
+      >
         <ThemeProvider>
-          <main className="h-screen light text-foreground bg-background">
-            {children}
-          </main>
+          <ThemeSwitcher className="absolute top-2 right-2" />
+          {children}
         </ThemeProvider>
       </body>
     </html>
