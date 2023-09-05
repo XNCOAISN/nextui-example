@@ -1,15 +1,53 @@
-const Home = () => {
+import { Link } from "@/components/Link";
+import { EventCard } from "@/features/EventCard";
+
+const getAuthUser = async () => {
+  return {
+    id: "1",
+  };
+};
+
+const getEvents = async () => {
+  return [...Array(10)].map((_, i) => {
+    return {
+      id: i.toString(),
+      name: "Event",
+      profileImage: "https://picsum.photos/seed/picsum/300/200",
+      startDate: "2023-04-05 06:07:08",
+      locationName: "Location",
+      category: {
+        id: "1",
+        name: "Category",
+      },
+      editors: [
+        {
+          id: (i % 3).toString(),
+          name: "User",
+          profileImage: "https://i.pravatar.cc/150?u=a042581f4e29026704d",
+        },
+      ],
+    };
+  });
+};
+
+const Home = async () => {
+  const authUser = await getAuthUser();
+  const events = await getEvents();
+
   return (
     <div className="max-w-4xl mx-auto flex flex-col gap-4 px-6 mt-8">
-      <h1 className="text-2xl font-bold mb-5">Lorem ipsum dolor sit ame</h1>
-      {[...Array(10)].map((_, i) => (
-        <div key={i} className="mb-5 text-lg">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
-          voluptatum accusamus consequatur magnam, quo suscipit officiis, illum
-          sequi quas laborum ea deleniti neque temporibus similique voluptates
-          minima omnis laudantium consectetur?
-        </div>
-      ))}
+      <Link href="#">link</Link>
+      {events.map((event) => {
+        return (
+          <EventCard
+            key={event.id}
+            event={event}
+            organizer={event.editors[0]}
+            category={event.category}
+            isOrganizer={event.editors[0].id === authUser?.id}
+          />
+        );
+      })}
     </div>
   );
 };
