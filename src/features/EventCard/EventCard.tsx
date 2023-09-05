@@ -7,6 +7,7 @@ import {
   EventCardImage,
   EventCardLabel,
 } from "@/components/EvemtCard";
+import { EventCardLink } from "@/components/EvemtCard/EventCardLink";
 import { Link } from "@/components/Link";
 import { Avatar } from "@nextui-org/avatar";
 import { IconMapPin, IconTag } from "@tabler/icons-react";
@@ -43,19 +44,23 @@ export const EventCard = async ({
   ...props
 }: EventCardProps) => {
   return (
-    <EventCardBase {...props}>
+    <EventCardBase {...props} href={`/event/${event.id}`}>
       <EventCardImage src={event.profileImage} />
       <EventCardBody>
         <EventCardHead date={event.startDate} title={event.name} />
         <EventCardContent>
           <EventCardLabel icon={<Avatar src={organizer.profileImage} />}>
-            <Link href={`/user/${organizer.id}`}>{organizer.name}</Link>
+            <EventCardLink href={`/user/${organizer.id}`}>
+              {organizer.name}
+            </EventCardLink>
           </EventCardLabel>
           <EventCardLabel icon={<IconMapPin />}>
-            <Link href="#">{event.locationName}</Link>
+            <EventCardLink href="#">{event.locationName}</EventCardLink>
           </EventCardLabel>
           <EventCardLabel icon={<IconTag />}>
-            <Link href={`/category/${category.id}`}>{category.name}</Link>
+            <EventCardLink href={`/category/${category.id}`}>
+              {category.name}
+            </EventCardLink>
           </EventCardLabel>
         </EventCardContent>
       </EventCardBody>

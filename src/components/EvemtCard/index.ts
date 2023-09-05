@@ -7,3 +7,4 @@ export {
 export { EventCardImage, type EventCardImageProps } from "./EventCardImage";
 export { EventCardLabel, type EventCardLabelProps } from "./EventCardLabel";
 export { EventCardHead, type EventCardHeadProps } from "./EventCardHead";
+export { EventCardLink, type EventCardLinkProps } from "./EventCardLink";

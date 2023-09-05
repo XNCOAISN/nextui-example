@@ -10,7 +10,7 @@ export const NavbarItem = ({
   ...props
 }: NavbarItemProps) => {
   return (
-    <NavbarItemBase {...props} className={cn("flex", className)}>
+    <NavbarItemBase {...props} className={cn("flex text-sm", className)}>
       {children}
     </NavbarItemBase>
   );

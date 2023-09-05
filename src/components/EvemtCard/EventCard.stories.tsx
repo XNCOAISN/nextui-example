@@ -4,14 +4,15 @@ import { Avatar } from "@nextui-org/avatar";
 import { IconMapPin, IconTag } from "@tabler/icons-react";
 import { MainLayoutDecorator } from "@/stories/decorators/MainLayoutDecorator";
 
-import { Link } from "@/components/Link";
-
-import { EventCard } from "./EventCard";
-import { EventCardHead } from "./EventCardHead";
-import { EventCardContent } from "./EventCardContent";
-import { EventCardLabel } from "./EventCardLabel";
-import { EventCardImage } from "./EventCardImage";
-import { EventCardBody } from "./EventCardBody";
+import {
+  EventCard,
+  EventCardHead,
+  EventCardContent,
+  EventCardLabel,
+  EventCardImage,
+  EventCardBody,
+  EventCardLink,
+} from "./";
 
 const meta = {
   component: EventCard,
@@ -36,7 +37,7 @@ const IconAvatar = ({ className }: { className?: string }) => {
 export const Default: Story = {
   render: () => {
     return (
-      <EventCard isOrganizer>
+      <EventCard isOrganizer href="#">
         <EventCardImage src="https://picsum.photos/seed/picsum/200/300" />
         <EventCardBody>
           <EventCardHead
@@ -45,15 +46,15 @@ export const Default: Story = {
           />
           <EventCardContent>
             <EventCardLabel icon={<IconAvatar />}>
-              <Link href="#">Organizer</Link>
+              <EventCardLink href="#">Organizer</EventCardLink>
             </EventCardLabel>
             <EventCardLabel icon={<IconMapPin />}>
-              <Link href="#">Location</Link>
+              <EventCardLink href="#">Location</EventCardLink>
             </EventCardLabel>
             <EventCardLabel icon={<IconTag />}>
-              <Link href="#">
+              <EventCardLink href="#">
                 CategoryCategoryCategoryCategoryCategoryCategoryCategoryCategoryCategoryCategoryCategoryCategoryCategoryCategory
-              </Link>
+              </EventCardLink>
             </EventCardLabel>
           </EventCardContent>
         </EventCardBody>
