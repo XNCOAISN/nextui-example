@@ -34,30 +34,3 @@ export const Image: Story = {
     children: <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026704d" />,
   },
 };
-
-export const Colors: Story = {
-  render: ({ href }) => {
-    return (
-      <div className="flex flex-col">
-        <Link href={href} color="foreground">
-          foreground
-        </Link>
-        <Link href={href} color="primary">
-          primary
-        </Link>
-        <Link href={href} color="secondary">
-          secondary
-        </Link>
-        <Link href={href} color="success">
-          success
-        </Link>
-        <Link href={href} color="warning">
-          warning
-        </Link>
-        <Link href={href} color="danger">
-          danger
-        </Link>
-      </div>
-    );
-  },
-};

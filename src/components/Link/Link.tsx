@@ -1,10 +1,23 @@
-import { Link as LinkBase, LinkProps } from "@nextui-org/link";
-import NextLink from "next/link";
+import { cn } from "@nextui-org/system-rsc";
+import {
+  Link as NextUILink,
+  LinkProps as NextUILinkProps,
+} from "@nextui-org/link";
+import NextLink, { LinkProps as NextLinkProps } from "next/link";
 
-export type { LinkProps };
+export type LinkProps = Omit<NextUILinkProps, "color"> & NextLinkProps;
 
-export const Link = (props: LinkProps) => {
+export const Link = ({ className, ...props }: LinkProps) => {
   return (
-    <LinkBase as={NextLink} color="foreground" prefetch={false} {...props} />
+    <NextUILink
+      as={NextLink}
+      prefetch={false}
+      className={cn(
+        "static inline text-inherit font-weight-inherit leading-inherit",
+        className
+      )}
+      style={{ fontSize: "inherit" }}
+      {...props}
+    />
   );
 };
