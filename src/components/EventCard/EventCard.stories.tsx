@@ -12,7 +12,7 @@ import {
   EventCardImage,
   EventCardBody,
   EventCardLink,
-} from "./";
+} from ".";
 
 const meta = {
   component: EventCard,

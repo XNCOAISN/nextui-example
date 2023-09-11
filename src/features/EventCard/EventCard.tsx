@@ -6,8 +6,8 @@ import {
   EventCardHead,
   EventCardImage,
   EventCardLabel,
-} from "@/components/EvemtCard";
-import { EventCardLink } from "@/components/EvemtCard/EventCardLink";
+} from "@/components/EventCard";
+import { EventCardLink } from "@/components/EventCard/EventCardLink";
 import { Link } from "@/components/Link";
 import { Avatar } from "@nextui-org/avatar";
 import { IconMapPin, IconTag } from "@tabler/icons-react";
